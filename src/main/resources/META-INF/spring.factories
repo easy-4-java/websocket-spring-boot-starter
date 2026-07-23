@@ -1,5 +1,5 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.github.hiwepy.websocket.WebSocketSubProtocolAutoConfiguration,\
-com.github.hiwepy.websocket.WebSocketBrokerAutoConfiguration,\
-com.github.hiwepy.websocket.WebSocketAutoConfiguration
+io.github.easy4j.websocket.WebSocketSubProtocolAutoConfiguration,\
+io.github.easy4j.websocket.WebSocketBrokerAutoConfiguration,\
+io.github.easy4j.websocket.WebSocketAutoConfiguration
