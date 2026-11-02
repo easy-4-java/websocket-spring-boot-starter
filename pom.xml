@@ -161,7 +161,7 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
-<configuration>
+					<configuration>
 						<failIfNoTests>true</failIfNoTests>
 						<includes>
 							<include>**/*Test.java</include>
@@ -454,4 +454,3 @@
 	</dependencies>
 
 </project>
-
