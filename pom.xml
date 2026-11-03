@@ -162,23 +162,10 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
 					<configuration>
-						<!-- 跳过单元测试 -->
-						<skip>true</skip>
-						<skipTests>true</skipTests>
-						<!-- forkMode 可设置值有 “never”， “once”， “always” 和 “pertest”。 pretest：
-							每一个测试创建一个新进程，为每个测试创建新的JVM是单独测试的最彻底方式，但也是最慢的，不适合hudson上持续回归。 once：在一个进程中进行所有测试。once为默认设置，在Hudson上持续回归时建议使用默认设置。
-							always：在一个进程中并行的运行脚本，Junit4.7以上版本才可以使用，surefire的版本要在2.6以上提供这个功能，其中 threadCount：执行时，指定可分配的线程数量。只和参数parallel配合使用有效。默认：5。 -->
-						<forkMode>once</forkMode>
-						<argLine>-Xmx1024m -XX:PermSize=256m -XX:MaxPermSize=256m -Dfile.encoding=UTF-8</argLine>
-						<additionalClasspathElements>
-							<additionalClasspathElement>${basedir}/target/test-classes</additionalClasspathElement>
-						</additionalClasspathElements>
+						<failIfNoTests>true</failIfNoTests>
 						<includes>
 							<include>**/*Test.java</include>
 						</includes>
-						<excludes>
-							<exclude>**/TestBean.java</exclude>
-						</excludes>
 					</configuration>
 				</plugin>
 				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
@@ -389,6 +376,11 @@
 			<artifactId>slf4j-simple</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- Core starter, including auto-configuration support, logging and YAML -->
 		<dependency>
@@ -447,7 +439,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
-			<version>32.0.1-jre</version>
+			<version>33.7.2-jre</version>
 		</dependency>
 		<dependency>
 			<groupId>com.alibaba</groupId>
